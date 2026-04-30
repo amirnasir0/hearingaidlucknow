@@ -3,7 +3,7 @@ import { products } from '@/db/schema';
 import { MetadataRoute } from 'next';
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-    const baseUrl = process.env.NEXTAUTH_URL || 'https://hearclear.com';
+    const baseUrl = process.env.SITE_URL || 'https://hear.hearingsolutions.co.in';
 
     const allProducts = await db.select({ slug: products.slug, updatedAt: products.updatedAt }).from(products);
 

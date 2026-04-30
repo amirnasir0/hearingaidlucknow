@@ -9,6 +9,7 @@ const navItems = [
     { href: '/admin/products', icon: '🎧', label: 'Products' },
     { href: '/admin/attributes', icon: '🏷️', label: 'Attributes' },
     { href: '/admin/settings', icon: '⚙️', label: 'Settings' },
+    { href: '/admin/seo', icon: '🌐', label: 'SEO & Feeds' },
 ];
 
 export default function AdminNav({ brandName }: { brandName: string }) {

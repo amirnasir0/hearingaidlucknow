@@ -17,6 +17,14 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
             async authorize(credentials) {
                 if (!credentials?.email || !credentials?.password) return null;
 
+                // Fallback to .env credentials
+                if (
+                    credentials.email === process.env.ADMIN_EMAIL &&
+                    credentials.password === process.env.ADMIN_PASSWORD
+                ) {
+                    return { id: 'admin-env', email: process.env.ADMIN_EMAIL };
+                }
+
                 const [user] = await db
                     .select()
                     .from(adminUsers)
