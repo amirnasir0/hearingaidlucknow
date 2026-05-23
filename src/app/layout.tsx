@@ -10,6 +10,11 @@ export async function generateMetadata(): Promise<Metadata> {
     alternates: {
       canonical: 'https://hear.hearingsolutions.co.in',
     },
+    icons: {
+      icon: 'https://price.hearingsolutions.co.in/favicon.ico?favicon.783202bc.ico',
+      shortcut: 'https://price.hearingsolutions.co.in/favicon.ico?favicon.783202bc.ico',
+      apple: 'https://price.hearingsolutions.co.in/favicon.ico?favicon.783202bc.ico',
+    },
   };
 }
 
