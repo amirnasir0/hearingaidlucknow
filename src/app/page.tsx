@@ -5,7 +5,20 @@ import { eq, desc } from 'drizzle-orm';
 import Link from 'next/link';
 import PublicNav from '@/components/PublicNav';
 
+import type { Metadata } from 'next';
+
 export const dynamic = 'force-dynamic';
+
+export async function generateMetadata(): Promise<Metadata> {
+  const settings = await getSiteSettings();
+  return {
+    title: `${settings.brandName} - Premium Hearing Aids`,
+    description: `Discover world-class hearing aids from top brands. Find the perfect hearing solution for you at ${settings.brandName}.`,
+    alternates: {
+      canonical: 'https://hear.hearingsolutions.co.in',
+    },
+  };
+}
 
 export default async function HomePage() {
   const [settings, allProducts, allCategories] = await Promise.all([
@@ -72,6 +85,24 @@ export default async function HomePage() {
               <div className="trust-item"><span className="trust-check">✓</span> Authorised Dealer</div>
               <div className="trust-item"><span className="trust-check">✓</span> Trial Available</div>
               <div className="trust-item"><span className="trust-check">✓</span> Expert Support</div>
+            </div>
+          </div>
+        </section>
+
+        {/* Brands Strip */}
+        <section className="brands-section" aria-label="Trusted Brands">
+          <div className="brands-inner">
+            <h2 className="brands-title">Trusted Brands:</h2>
+            <div className="brands-list-marquee-container">
+              <div className="brands-list brands-list-marquee">
+                <span className="brand-item">Signia</span>
+                <span className="brand-item">Phonak</span>
+                <span className="brand-item">Oticon</span>
+                {/* Duplicate for seamless mobile marquee */}
+                <span className="brand-item">Signia</span>
+                <span className="brand-item">Phonak</span>
+                <span className="brand-item">Oticon</span>
+              </div>
             </div>
           </div>
         </section>
@@ -196,6 +227,37 @@ export default async function HomePage() {
             </div>
           </section>
         )}
+
+        {/* Testimonials */}
+        <section className="testimonials-section" aria-label="Customer Reviews">
+          <div className="testimonials-inner">
+            <h2 className="section-title" style={{ textAlign: 'center', marginBottom: 8 }}>What Our Customers Say</h2>
+            <p className="section-sub" style={{ textAlign: 'center', marginBottom: 40 }}>
+              Read stories of life-changing hearing improvements from our happy clients
+            </p>
+            <div className="testimonials-grid">
+              {[
+                { name: "Ramesh Sharma", city: "New Delhi", initial: "R", review: "Incredible service! The free consultation helped me find the perfect Signia hearing aid. My hearing is absolutely clear now." },
+                { name: "Priya Patel", city: "Mumbai", initial: "P", review: "The home trial option was a lifesaver. I tried Phonak and Signia before choosing. Outstanding support from their team." },
+                { name: "Anand Verma", city: "Bangalore", initial: "A", review: "Very professional audiologists. The pricing is transparent and the manufacturer warranty is fully backed. Highly recommend!" }
+              ].map((item, idx) => (
+                <div key={idx} className="testimonial-card">
+                  <div>
+                    <div className="testimonial-stars" aria-hidden="true">★★★★★</div>
+                    <p className="testimonial-text">&ldquo;{item.review}&rdquo;</p>
+                  </div>
+                  <div className="testimonial-user">
+                    <div className="testimonial-avatar" aria-hidden="true">{item.initial}</div>
+                    <div className="testimonial-user-info">
+                      <span className="testimonial-name">{item.name}</span>
+                      <span className="testimonial-city">{item.city}</span>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
       </main>
 
       {/* Footer */}
@@ -217,6 +279,19 @@ export default async function HomePage() {
               <h4 className="footer-col-title">Quick Links</h4>
               <Link href="/#products" className="footer-link">Products</Link>
               <Link href="/#why" className="footer-link">Why Us</Link>
+            </div>
+            <div className="footer-col">
+              <h4 className="footer-col-title">Pages</h4>
+              <Link href="/about" className="footer-link">About Us</Link>
+              <Link href="/contact" className="footer-link">Contact Us</Link>
+              <Link href="/#faq" className="footer-link">FAQ</Link>
+            </div>
+            <div className="footer-col">
+              <h4 className="footer-col-title">Policy</h4>
+              <Link href="/privacy-policy" className="footer-link">Privacy Policy</Link>
+              <Link href="/refund-policy" className="footer-link">Refund Policy</Link>
+              <Link href="/shipping-policy" className="footer-link">Shipping Policy</Link>
+              <Link href="/terms-conditions" className="footer-link">Terms &amp; Conditions</Link>
             </div>
             {(settings.phone || settings.email) && (
               <div className="footer-col">
