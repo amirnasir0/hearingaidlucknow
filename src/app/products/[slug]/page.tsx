@@ -315,6 +315,9 @@ export default async function ProductDetailPage({ params }: Props) {
                         <ProductClientActions
                             phone={settings.phone || "+919335676749"}
                             productTitle={product.title}
+                            productSlug={product.slug}
+                            productId={product.id}
+                            mrp={product.mrp}
                             mode="purchase"
                         />
  

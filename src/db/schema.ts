@@ -108,6 +108,24 @@ export const siteSettings = pgTable('site_settings', {
     updatedAt: timestamp('updated_at').defaultNow().notNull(),
 });
 
+// ─── Orders ───────────────────────────────────────────────────────────────────
+export const orders = pgTable('orders', {
+    id: serial('id').primaryKey(),
+    orderId: varchar('order_id', { length: 20 }).notNull().unique(),
+    productId: integer('product_id').references(() => products.id, { onDelete: 'set null' }),
+    productTitle: varchar('product_title', { length: 255 }).notNull(),
+    productSlug: varchar('product_slug', { length: 300 }).notNull(),
+    mrp: decimal('mrp', { precision: 10, scale: 2 }).notNull(),
+    fullName: varchar('full_name', { length: 255 }).notNull(),
+    mobile: varchar('mobile', { length: 20 }).notNull(),
+    address: text('address').notNull(),
+    pincode: varchar('pincode', { length: 10 }),
+    status: varchar('status', { length: 20 }).notNull().default('pending'),
+    notes: text('notes'),
+    createdAt: timestamp('created_at').defaultNow().notNull(),
+    updatedAt: timestamp('updated_at').defaultNow().notNull(),
+});
+
 // ─── Types ────────────────────────────────────────────────────────────────────
 export type Product = typeof products.$inferSelect;
 export type NewProduct = typeof products.$inferInsert;
@@ -118,3 +136,4 @@ export type SuitableFor = typeof suitableFor.$inferSelect;
 export type Feature = typeof features.$inferSelect;
 export type AdminUser = typeof adminUsers.$inferSelect;
 export type SiteSettings = typeof siteSettings.$inferSelect;
+export type Order = typeof orders.$inferSelect;
