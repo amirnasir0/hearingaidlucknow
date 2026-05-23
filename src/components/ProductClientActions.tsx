@@ -5,9 +5,9 @@ import { useState, useEffect } from 'react';
 type ProductClientActionsProps = {
   phone: string;
   productTitle: string;
-  productSlug: string;
+  productSlug?: string;
   productId?: number;
-  mrp: string;
+  mrp?: string;
   mode?: 'purchase' | 'pincode';
 };
 
@@ -56,8 +56,8 @@ export default function ProductClientActions({ phone, productTitle, productSlug,
         body: JSON.stringify({
           productId: productId ?? null,
           productTitle,
-          productSlug,
-          mrp,
+          productSlug: productSlug ?? '',
+          mrp: mrp ?? '0',
           fullName,
           mobile: mobileNumber,
           address,
@@ -117,7 +117,7 @@ export default function ProductClientActions({ phone, productTitle, productSlug,
                   <>
                     <h3 className="modal-title">Complete Your Order</h3>
                     <p className="modal-subtitle">
-                      <strong>{productTitle}</strong> — ₹{parseFloat(mrp).toLocaleString('en-IN')}
+                      <strong>{productTitle}</strong>{mrp ? ` — ₹${parseFloat(mrp).toLocaleString('en-IN')}` : ''}
                     </p>
 
                     {orderError && (
