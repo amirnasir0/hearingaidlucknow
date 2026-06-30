@@ -126,6 +126,16 @@ export const orders = pgTable('orders', {
     updatedAt: timestamp('updated_at').defaultNow().notNull(),
 });
 
+// ─── Leads ───────────────────────────────────────────────────────────────────
+export const leads = pgTable('leads', {
+    id: serial('id').primaryKey(),
+    fullName: varchar('full_name', { length: 255 }).notNull(),
+    mobile: varchar('mobile', { length: 20 }).notNull(),
+    productTitle: varchar('product_title', { length: 255 }),
+    productSlug: varchar('product_slug', { length: 300 }),
+    createdAt: timestamp('created_at').defaultNow().notNull(),
+});
+
 // ─── Types ────────────────────────────────────────────────────────────────────
 export type Product = typeof products.$inferSelect;
 export type NewProduct = typeof products.$inferInsert;
@@ -137,3 +147,4 @@ export type Feature = typeof features.$inferSelect;
 export type AdminUser = typeof adminUsers.$inferSelect;
 export type SiteSettings = typeof siteSettings.$inferSelect;
 export type Order = typeof orders.$inferSelect;
+export type Lead = typeof leads.$inferSelect;
