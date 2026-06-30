@@ -199,7 +199,7 @@ export default async function ProductDetailPage({ params }: Props) {
                 'name': 'Is this suitable for severe hearing loss?',
                 'acceptedAnswer': {
                     '@type': 'Answer',
-                    'text': 'Yes, depending on the specific model configured. Our audiologist will program it precisely for your hearing loss configuration.'
+                    'text': 'Yes. These hearing aids support a wide output range (up to 120 dB) and are suitable for mild to severe hearing loss. The device ships ready to use with adjustable volume and multiple pre-set listening programs.'
                 }
             },
             {
@@ -212,18 +212,18 @@ export default async function ProductDetailPage({ params }: Props) {
             },
             {
                 '@type': 'Question',
-                'name': 'Can I try before buying?',
+                'name': 'Can I return it if it does not suit me?',
                 'acceptedAnswer': {
                     '@type': 'Answer',
-                    'text': 'Absolutely. We offer free consultation and hassle-free home trial options for eligible customers.'
+                    'text': 'Yes. We offer a 30-day return and exchange policy. If you are not satisfied with the product, you can return it as per our refund policy for a full resolution.'
                 }
             },
             {
                 '@type': 'Question',
-                'name': 'How do I get it fitted properly?',
+                'name': 'How do I adjust the hearing aid after receiving it?',
                 'acceptedAnswer': {
                     '@type': 'Answer',
-                    'text': 'Our experienced hearing care experts will assist you in proper fitting, custom earmolds (if needed), and precise tuning based on your audiogram.'
+                    'text': 'This hearing aid comes with the Signia app (iOS and Android), which lets you adjust volume, change listening programs, and personalise settings directly from your smartphone.'
                 }
             },
             {
@@ -326,8 +326,8 @@ export default async function ProductDetailPage({ params }: Props) {
                         <div className="trust-badges-container">
                             <div className="trust-badge-strip-item">🏅 Authorised Dealer</div>
                             <div className="trust-badge-strip-item">🔒 Secure Purchase</div>
-                            <div className="trust-badge-strip-item">🎧 Free Consultation</div>
-                            <div className="trust-badge-strip-item">🔄 Trial Available</div>
+                            <div className="trust-badge-strip-item">📞 Post-Purchase Support</div>
+                            <div className="trust-badge-strip-item">🔄 30-Day Returns</div>
                             <div className="trust-badge-strip-item">🛡️ Manufacturer Warranty</div>
                             <div className="trust-badge-strip-item">🚚 Pan-India Shipping</div>
                         </div>
@@ -498,10 +498,10 @@ export default async function ProductDetailPage({ params }: Props) {
                             <h3 className="faq-title">❓ Frequently Asked Questions</h3>
                             <div className="faq-accordion">
                                 {[
-                                    { q: "Is this suitable for severe hearing loss?", a: "Yes, depending on the specific model configured. Our audiologist will program it precisely for your hearing loss configuration." },
+                                    { q: "Is this suitable for severe hearing loss?", a: "Yes. These hearing aids support a wide output range (up to 120 dB) and are suitable for mild to severe hearing loss. The device ships ready to use with adjustable volume and multiple pre-set listening programs." },
                                     { q: "Does it come with a warranty?", a: "Yes, a full manufacturer warranty is included with every hearing aid purchase." },
-                                    { q: "Can I try before buying?", a: "Absolutely. We offer free consultation and hassle-free home trial options for eligible customers." },
-                                    { q: "How do I get it fitted properly?", a: "Our experienced hearing care experts will assist you in proper fitting, custom earmolds (if needed), and precise tuning based on your audiogram." },
+                                    { q: "Can I return it if it does not suit me?", a: "Yes. We offer a 30-day return and exchange policy. If you are not satisfied with the product, you can return it as per our refund policy for a full resolution." },
+                                    { q: "How do I adjust the hearing aid after receiving it?", a: "This hearing aid comes with the Signia app (iOS and Android), which lets you adjust volume, change listening programs, and personalise settings directly from your smartphone." },
                                     { q: "Is EMI available?", a: "Yes, we offer easy no-cost EMI options through Bajaj Finserv and major credit cards on enquiry." },
                                     { q: "What's the difference between BTE and CIC?", a: "BTE (Behind-The-Ear) devices sit behind your ear and are highly versatile. CIC (Completely-in-Canal) devices fit completely inside the ear canal, making them virtually invisible." },
                                     { q: "How do I contact support after purchase?", a: "You can call or message our dedicated customer service helpline at +919335676749 or email contact@hearingsolutions.co.in." }
